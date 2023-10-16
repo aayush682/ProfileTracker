@@ -1,0 +1,41 @@
+<%- include('../layouts/header'); %>
+
+    <body>
+        <%- include('../layouts/navbar'); %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mx-auto mt-5">
+                        <div class="card-header bg">
+                            <h1 class="text-center bg">Add User</h1>
+                        </div>
+                        <div class="card-body p-0 pt-2">
+                            <form action="/add" method="POST" id="add-form" enctype="multipart/form-data">
+                                <div class="mb-2">
+                                    <label for="name" class="form-label"></label>
+                                    <input type="text" class="form-control form-control-lg" id="name" name="name"
+                                        placeholder="Enter name" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="email" class="form-label"></label>
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                        placeholder="Enter email" required>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="phone" class="form-label"></label>
+                                    <input type="tel" class="form-control form-control-lg" id="phone" name="phone"
+                                        placeholder="Enter phone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label"></label>
+                                    <input type="file" class="form-control form-control-lg" id="image" name="image">
+                                </div>
+                                <div class="mb-2 d-grid">
+                                    <input type="submit" class="btn btn-lg" value="Add" name="submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../layouts/footer'); %>
+    </body>

@@ -1,0 +1,53 @@
+<%- include('../layouts/header'); %> <!-- Include the header template -->
+
+    <body>
+        <%- include('../layouts/navbar'); %> <!-- Include the navbar template -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mx-auto mt-5">
+                        <div class="card-header bg">
+                            <h1 class="text-center bg">Edit User (<%= user.name %>)</h1>
+                            <!-- Display the user's name in the heading -->
+                        </div>
+                        <div class="card-body p-0 pt-2">
+                            <form action="/update/<%= user._id %>" method="POST" id="add-form"
+                                enctype="multipart/form-data">
+                                <!-- Form to update the user, with user's ID in the action URL -->
+                                <div class="mb-2">
+                                    <label for="name" class="form-label"></label>
+                                    <input type="text" class="form-control form-control-lg" id="name" name="name"
+                                        placeholder="Enter name" value="<%= user.name %>" required>
+                                    <!-- Input field for user's name -->
+                                </div>
+                                <div class="mb-2">
+                                    <label for="email" class="form-label"></label>
+                                    <input type="email" class="form-control form-control-lg" id="email" name="email"
+                                        placeholder="Enter email" value="<%= user.email %>" required>
+                                    <!-- Input field for user's email -->
+                                </div>
+                                <div class="mb-2">
+                                    <label for="phone" class="form-label"></label>
+                                    <input type="tel" class="form-control form-control-lg" id="phone" name="phone"
+                                        placeholder="Enter phone" value="<%= user.phone %>" required>
+                                    <!-- Input field for user's phone number -->
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label"></label>
+                                    <input type="file" class="form-control form-control-lg" id="image" name="image">
+                                    <!-- Input field for user's image file -->
+                                    <img src="/<%= user.image %>" width="100" class="img-thumbnail" alt="">
+                                    <!-- Display the user's image -->
+                                </div>
+                                <input type="hidden" name="old_image" value="<%= user.image %>">
+                                <!-- Hidden input field to store the user's current image -->
+                                <div class="mb-2 d-grid">
+                                    <input type="submit" class="btn btn-lg" value="Update" name="submit">
+                                    <!-- Submit button to update the user -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../layouts/footer'); %> <!-- Include the footer template -->
+    </body>
